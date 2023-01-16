@@ -1,0 +1,2 @@
+module Adimin::OrderDetailsHelper
+end
