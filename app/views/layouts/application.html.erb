@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<title>NaganoCake</title>
+    <li>
+      <%= link_to root_path do %>
+        LOGO
+      <% end %>
+    </li>
+    <li>
+      <%=  link_to about_path do %>
+       About
+      <% end %>
+    </li>
+     <li>
+      <%=  link_to about_path do %>
+        新規登録
+      <% end %>
+    </li>
+     <li>
+      <%=  link_to about_path do %>
+       ログイン
+      <% end %>
+    </li>
