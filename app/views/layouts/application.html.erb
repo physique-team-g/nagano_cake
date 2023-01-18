@@ -1,4 +1,6 @@
 <title>NaganoCake</title>
+
+<% if customer_signed_in? %>
     <li>
       <%= link_to root_path do %>
         LOGO
@@ -10,17 +12,45 @@
       <% end %>
     </li>
     <li>
-      <%=  link_to about_path do %>
+      <%=  link_to items_path do %>
        商品一覧
       <% end %>
     </li>
      <li>
-      <%=  link_to about_path do %>
+      <%=  link_to new_customer_registration_path do %>
         新規登録
       <% end %>
     </li>
      <li>
-      <%=  link_to about_path do %>
+      <%=  link_to customer_session do %>
        ログイン
       <% end %>
     </li>
+<% else %>
+  <li>
+      <%= link_to root_path do %>
+        LOGO
+      <% end %>
+    </li>
+    <li>
+      <%=  link_to about_path do %>
+       マイページ
+      <% end %>
+    </li>
+    <li>
+      <%=  link_to items_path do %>
+       商品一覧
+      <% end %>
+    </li>
+     <li>
+      <%=  link_to new_customer_registration_path do %>
+        カート
+      <% end %>
+    </li>
+     <li>
+      <%=  link_to customer_session do %>
+       ログアウト
+      <% end %>
+    </li>
+  <% end %>
+    
