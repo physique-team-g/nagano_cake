@@ -1,4 +1,15 @@
-<title>NaganoCake</title>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
 <header>
   <% if customer_signed_in? %>
        <li>
@@ -7,22 +18,22 @@
         <% end %>
       </li>
       <li>
-        <%=  link_to customer_path(current_customer) do %>
+        <%= link_to customer_path(current_customer) do %>
          マイページ
         <% end %>
       </li>
       <li>
-        <%=  link_to items_path do %>
+        <%= link_to items_path do %>
          商品一覧
         <% end %>
       </li>
        <li>
-        <%=  link_to new_customer_registration_path do %>
+        <%= link_to cart_items_path do %>
           カート
         <% end %>
       </li>
        <li>
-        <%=  link_to customer_session do %>
+        <%= link_to destroy_customer_session_path, method: :delete do %>
          ログアウト
         <% end %>
       </li>
@@ -62,3 +73,4 @@
 <footer>
 </footer>
 
+</html>
