@@ -48,18 +48,17 @@
         <% end %>
       </li>
        <li>
-        <%=  link_to customer_session do %>
+        <%=  link_to customer_session_path do %>
          ログイン
         <% end %>
       </li>
   <% end %>
 </header>
-     
+
 <main>
-  <% yield %>
+  <%= yield %>
 </main>
 
 <footer>
 </footer>
 
-    
