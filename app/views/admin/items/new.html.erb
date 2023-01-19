@@ -1,2 +1,44 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<!--変数名やフォームの名前全体的に間違ってます。修正必要です。-->
+<h2>商品新規登録</h2>
+    <%= form_with model:@items, local:true do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :image,"商品画像" %>
+        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :name,"商品名" %>
+        <%= f.text_field :name, class: "form-control name" %>
+      </div>
+     
+      <div class="form-group">
+        <%= f.label :introduction,"商品説明" %>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduction,"ジャンル" %>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduction,"税抜価格" %>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduction,"販売ステータス" %>
+        
+        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.label :payment_method_credit_card, "販売中" %>
+        
+        <%= f.radio_button :payment_method, "transfer" %>
+        <%= f.label :payment_method_transfer, "販売停止中" %>
+      </div>
+      
+      
+      <div class="form-group">
+        <%= f.submit "新規登録", class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
