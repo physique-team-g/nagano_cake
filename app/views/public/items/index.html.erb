@@ -1,2 +1,14 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h3>商品一覧</3><p>（全●件）</p>
+
+<% @items.each do |item| %>
+
+<!--商品画像-->
+<%= image_tag item.get_profile_image(80,80) %>
+
+<!--商品名-->
+<%= item.name %>
+
+<!--金額 ※税抜になっているので税込みの計算式を入れる？-->
+<p>¥</p></p><%= item.price %>
+
+<% end %>
