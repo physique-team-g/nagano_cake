@@ -6,6 +6,7 @@ class Public::AddressesController < ApplicationController
   end
 
   def create
+    @customer = Customer.new(customer_params)
   end
 
   def update
