@@ -1,2 +1,17 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<h3>会員一覧</3>
+
+<% @customers.each do |customer| %>
+
+<!--会員id-->
+<%= customer.id %>
+
+<!--氏名-->
+<%= customer.name %>
+
+<!--メールアドレス-->
+<%= customer.email %>
+
+<!--ステータス-->
+<%= customer.status %>
+
+<% end %>
