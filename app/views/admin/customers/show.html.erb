@@ -1,2 +1,41 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<!--変数名など修正箇所あります-->
+<h3>会員詳細</3>
+
+<!--会員ID-->
+<%= @customer.id %><br>
+
+<!--氏名-->
+<%= @customer.last_name %>
+<%= @customer.first_name %><br>
+
+<!--フリガナ-->
+<%= @customer.last_name_kana %>
+<%= @customer.first_name_kana %><br>
+
+<!--郵便番号-->
+<%= @customer.post_code %><br>
+
+<!--住所-->
+<%= @customer.address %><br>
+
+<!--電話番号-->
+<%= @customer.phone_number %><br>
+
+<!--メールアドレス-->
+<%= @customer.email %><br>
+
+<!--会員ステータス-->
+<%= @customer.is_deleted %><br>
+
+
+<%= form_with model: @customer, local:true do |f| %>
+
+    <div class="form-group">
+        <%= f.submit "編集する", class: 'btn btn-secondary' %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.submit "注文履歴一覧を見る", class: 'btn btn-secondary' %>
+    </div>
+
+<% end %>
