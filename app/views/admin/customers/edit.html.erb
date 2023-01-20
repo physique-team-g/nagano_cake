@@ -1,2 +1,51 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<h2>会員情報編集</h2>
+    <%= form_with model:@customers, url: admin_customer_path, local:true do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :id,"会員ID" %>
+        <%= @customer.id %>
+      </div>
+     
+      <div class="form-group">
+        <%= f.label :last_name,"氏名" %>
+        <%= f.text_field :last_name, class: "form-control last_name" %>
+        <%= f.text_field :first_name, class: "form-control first_name" %>
+      </div>
+      
+     
+      <div class="form-group">
+        <%= f.label :last_name_kana,"フリガナ" %>
+        <%= f.text_field :last_name_kana, class: "form-control last_name_kana" %>
+        <%= f.text_field :first_name_kana, class: "form-control first_name_kana" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :post_code,"郵便番号" %>
+        <%= f.text_field :post_code, class: "form-control post_code" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :address,"住所" %>
+        <%= f.text_field :address, class: "form-control address" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :phone_number,"電話番号" %>
+        <%= f.text_field :phone_number, class: "form-control phone_number" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :email,"メールアドレス" %>
+        <%= f.text_field :email, class: "form-control email" %>
+      </div>
+      
+      <!--会員ステータスのラジオボタン実装-->
+      <div class="form-group">
+        <%= f.label :id,"会員ID" %>
+        <%= @customer.is_deleted %><br>
+      </div>
+      
+      <div class="form-group">
+        <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
