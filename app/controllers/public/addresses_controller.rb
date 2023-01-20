@@ -1,6 +1,7 @@
 class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
+    @addresses = Address.all
   end
 
   def edit
@@ -22,6 +23,6 @@ class Public::AddressesController < ApplicationController
    private
 
   def address_params
-    params.permit(:post_code, :address, :name, :customer_id)
+    params.require(:address).permit(:post_code, :address, :name, :customer_id)
   end
 end

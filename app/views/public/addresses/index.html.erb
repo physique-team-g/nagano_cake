@@ -1,5 +1,5 @@
 <h3>配送先登録/一覧</h3>
-<%= form_with model: @customer, url: addresses_path do |f| %>
+<%= form_with model: @address, url: addresses_path do |f| %>
 <table>
 <tr>
    <td>
@@ -31,3 +31,35 @@
 </tr>
 </table>
 <% end %>
+
+<table border="1" style="border-collapse: collapse">
+<tr>
+   <td>
+     <p>郵便番号</p>
+   </td>
+   <td>
+      <p>住所</p>
+   </td>
+   <td>
+      <p>宛名</p>
+   </td>
+   <td></td>
+</tr>
+<% @addresses.each do |address| %>
+<tr>
+   <td>
+      <%= address.post_code %>
+   </td>
+   <td>
+      <%= address.address %>
+   </td>
+   <td>
+      <%= address.name %>
+   </td>
+   <td>
+      編集する
+      削除する
+   </td>
+</tr>
+<% end %>
+</table>
