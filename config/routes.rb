@@ -35,8 +35,10 @@ Rails.application.routes.draw do
 
     get 'homes/about' => "homes#about", as: "about"
 
-    resources :customers, only: [:show, :edit, :update]
     get 'customers/withdrawal' => "customers#withdrawal", as: "withdrawal"
+    get 'customers/information/edit' => "customers#edit", as: "edit"
+    patch 'customers/information' => "customers#update", as: "update"
+    resource :customers, only: [:show]
     get 'customers/status' => "customers#status", as: "status"
 
     resources :addresses, only: [:create, :edit, :update, :index, :destroy]
