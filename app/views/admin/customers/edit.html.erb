@@ -1,5 +1,7 @@
 <h2>会員情報編集</h2>
-    <%= form_with model:@customers, url :admin_customer_path, local:true do |f| %>
+
+    <%= form_with model:@customer, url: admin_customer_path, local:true do |f| %>
+
       
       <div class="form-group">
         <%= f.label :id,"会員ID" %>
@@ -12,7 +14,6 @@
         <%= f.text_field :first_name, class: "form-control first_name" %>
       </div>
       
-     
       <div class="form-group">
         <%= f.label :last_name_kana,"フリガナ" %>
         <%= f.text_field :last_name_kana, class: "form-control last_name_kana" %>
