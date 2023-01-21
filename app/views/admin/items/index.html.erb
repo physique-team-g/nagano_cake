@@ -1,20 +1,27 @@
-<h3>商品一覧</3><p>（全●件）</p>
+<h3>商品一覧</3>
 
-<% @items.each do |item| %>
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<!--商品id-->
-<%= item.id %>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.genre.name %></td>
+      <td><%= item.is_active %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<!--商品名-->
-<%= item.name %>
-
-<!--金額 ※税抜になっているので税込みの計算式を入れる？-->
- ¥<%= item.price %>
-
-<!--ジャンル-->
-<%= item.genre_id %>
-
-<!--ステータス-->
-<%= item.is_active %>
-
-<% end %>
