@@ -3,15 +3,23 @@
 <% @customers.each do |customer| %>
 
 <!--会員id-->
-<%= customer.id %>
+<div>
+  <%= customer.id %>
+</div>
 
 <!--氏名-->
-<%= customer.name %>
+<div>
+  <%= customer.last_name %><%= customer.first_name %>
+</div>
 
 <!--メールアドレス-->
-<%= customer.email %>
+<div>
+  <%= customer.email %>
+</div>
 
 <!--ステータス-->
-<%= customer.status %>
+<div>
+  <%= customer.is_deleted %>
+</div>
 
 <% end %>
