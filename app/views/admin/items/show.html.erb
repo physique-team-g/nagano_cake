@@ -1,24 +1,32 @@
-<!--変数名など修正箇所あります-->
 <h3>商品詳細</3>
 
-<!--商品画像-->
-<%= image_tag @item.get_item_image, size:"100x100" %>
+<!--イメージタグを入れる-->
 
-<!--商品名-->
-<%= @item.name %>
+  <table>
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.name %></td>
+    </tr>
 
-<!--商品説明-->
-<%= @item.name %>
+    <tr>
+      <td>商品説明</td>
+      <td><%= @item.introduction %></td>
+    </tr>
 
-<!--ジャンル-->
-<%= @item.genre_id %>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @item.genre_id %></td>
+    </tr>
 
-<!--税込価格（税抜価格）-->
-<p>¥</p></p><%= @item.price %>
+    <tr>
+      <td>税込み価格<br>(税抜き価格)</td>
+      <td><%= @total_price.ceil %>(<%= @item.price %>)円</td>
+    </tr>
 
-<!--ステータス-->
-<%= @item.status %>
+    <tr>
+      <td>販売ステータス</td>
+      <td><%= @item.is_active %></td>
+    </tr>
+  </table>
+  <%= link_to "編集する",  edit_admin_item_path(@item) %>
 
-<div class="form-group">
-    <%= f.submit "編集する", class: 'btn btn-secondary' %>
-</div>
