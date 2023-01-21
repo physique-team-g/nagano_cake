@@ -21,4 +21,5 @@ class Admin::CustomersController < ApplicationController
       render "edit"
     end
   end
+  
 end
