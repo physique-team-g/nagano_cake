@@ -1,25 +1,31 @@
 <h3>会員一覧</3>
 
-<% @customers.each do |customer| %>
+<table border="1" style="border-collapse: collapse">
+  <thead>
+    <tr>
+    <th>会員ID</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+    </tr>
+  </thead>
 
-<!--会員id-->
-<div>
-  <%= customer.id %>
-</div>
-
-<!--氏名-->
-<div>
-  <%= customer.last_name %><%= customer.first_name %>
-</div>
-
-<!--メールアドレス-->
-<div>
-  <%= customer.email %>
-</div>
-
-<!--ステータス-->
-<div>
-  <%= customer.is_deleted %>
-</div>
-
-<% end %>
+  <tbody>
+    <tr>
+  <% @customers.each do |customer| %>
+    <td>
+      <%= customer.id %>
+    </td>
+    <td>
+      <%= customer.last_name %><%= customer.first_name %>
+    </td>
+    <td>
+      <%= customer.email %>
+    </td>
+    <td>
+      <%= customer.is_deleted %>
+    </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
