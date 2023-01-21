@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
@@ -24,5 +25,5 @@ end
 
 private
   def item_params
-    params.require(:items).permit(:genre_id, :name, :price, :introduction, :is_active)
+    params.require(:item).permit(:genre_id, :name, :price, :introduction, :is_active)
   end
