@@ -1,15 +1,21 @@
 
 <!--商品のステータスが「販売中」の場合-->
-<% if @item.is_active == TRUE %>
+<%# if @item.is_active == TRUE %>
 
-  <%= form_with model: @cart_item, url: cart_items_path, method: :post,local: true)do |f| %>
+  <%= image_tag @item.item_image %>
+  <h4><%= @item.name %></h4>
+  <%= @item.introduction %><br>
+  <p>¥<%= @item.price %>(税込)</p><br>
+
+  <%= form_with model: @item, url: cart_items_path, method: :post, local: true do |f| %>
     <%= f.label :amount, "個数選択" %>
     <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
     <%= f.hidden_field :item_id, :value => @item.id %>
-    
+
      <!--第一引数にオブジェクト名item_id、第二引数部分にvalueで受け渡す値 @item.idを指定-->
-     <!--cartitem controllerの cart_items.find_by(item_id:に送ることができる-->
-     
-   <%= f.submit "カートに入れる" %>
+     <!--cartitem controllerの cart_items.find_by(item_id)に送ることができる-->
+
+    <%= f.submit "カートに入れる" %>
   <% end %>
-<% end %>
+
+<%# end %>
