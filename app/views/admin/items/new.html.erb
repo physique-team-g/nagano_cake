@@ -30,10 +30,10 @@
       <div class="form-group">
         <%= f.label :is_active,"販売ステータス" %>
 
-        <%= f.radio_button :is_active, Item.is_active.key(true) %>
+        <%= f.radio_button :is_active, :true, checked: true %>
         <%= f.label :is_active, "販売中" %>
 
-        <%= f.radio_button :is_active, Item.is_active.key(false) %>
+        <%= f.radio_button :is_active, :false %>
         <%= f.label :is_active, "販売停止中" %>
       </div>
 
