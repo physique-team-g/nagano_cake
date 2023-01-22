@@ -48,8 +48,8 @@ Rails.application.routes.draw do
     get 'orders/order_check' => "orders#order_check", as: "order_check"
     get 'orders/order_finish' => "orders#order_finish", as: "order_finish"
 
+    delete 'cart_items/destroy_all' => "cart_items#destroy_all", as: "destroy_all"
     resources :cart_items, only: [:create, :index, :update, :destroy]
-    get 'cart_items/destroy_all' => "cart_items#destroy_all", as: "destroy_all"
 
     resources :items, only: [:show, :index]
 
