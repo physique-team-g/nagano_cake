@@ -4,6 +4,15 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @cart_item = CartItem
+  end
+  
+  
+  private
+  
+  def item_params
+    params.require(:item).permit(:genre_id,:name,:introduction,:item_image,:price)
   end
   
   private
