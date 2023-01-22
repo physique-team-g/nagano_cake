@@ -1,14 +1,14 @@
-<h3>商品一覧</3><p>（全●件）</p>
+<p><h3>商品一覧</3>（全●件)</p>
 
 <% @items.each do |item| %>
 
 <!--イメージタグを入れる-->
 
 <%#= image_tag item.image %>
-<%= image_tag item.item_image, size: '50x50' %>
+<p><%= image_tag item.item_image, size: '50x50' %></p>
 
 <!--商品名-->
-<%= item.name %>
+<p><%= item.name %></p>
 
 <!--金額 ※税抜になっているので税込みの計算式を入れる？-->
 <p>¥<%= item.price %></p>
