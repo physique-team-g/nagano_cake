@@ -19,7 +19,7 @@
 
       <div class="form-group">
         <%= f.label :genre_id,"ジャンル" %>
-        <%= f.select :genre_id, [["ケーキ", 1], ["焼き菓子", 2], ["プリン", 3], ["キャンディ", 4]] %>
+        <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
       </div>
 
       <div class="form-group">
@@ -30,10 +30,10 @@
       <div class="form-group">
         <%= f.label :is_active,"販売ステータス" %>
 
-        <%= f.radio_button :is_active, "transfer" %>
+        <%= f.radio_button :is_active, Item.is_active.key(true) %>
         <%= f.label :is_active, "販売中" %>
 
-        <%= f.radio_button :is_active, "transfer" %>
+        <%= f.radio_button :is_active, Item.is_active.key(false) %>
         <%= f.label :is_active, "販売停止中" %>
       </div>
 
