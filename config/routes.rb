@@ -38,8 +38,9 @@ Rails.application.routes.draw do
     get 'customers/withdrawal' => "customers#withdrawal", as: "withdrawal"
     get 'customers/information/edit' => "customers#edit", as: "edit"
     patch 'customers/information' => "customers#update", as: "update"
+    patch 'customers/status' => "customers#status", as: "status"
     resource :customers, only: [:show]
-    get 'customers/status' => "customers#status", as: "status"
+
 
     resources :addresses, only: [:create, :edit, :update, :index, :destroy]
 
