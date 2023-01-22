@@ -31,5 +31,5 @@ end
 
 private
   def item_params
-    params.require(:item).permit(:genre_id, :name, :price, :introduction, :is_active)
+    params.require(:item).permit(:genre_id, :name, :price, :introduction, :is_active, :item_image)
   end
