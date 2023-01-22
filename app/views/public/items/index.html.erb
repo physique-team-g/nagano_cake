@@ -2,13 +2,12 @@
 
 <% @items.each do |item| %>
 
-<!--商品画像-->
-<%= image_tag item.get_profile_image(80,80) %>
+<!--イメージタグを入れる-->
 
 <!--商品名-->
 <%= item.name %>
 
 <!--金額 ※税抜になっているので税込みの計算式を入れる？-->
-<p>¥</p></p><%= item.price %>
+<p>¥<%= item.price %></p>
 
 <% end %>
