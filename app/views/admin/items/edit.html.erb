@@ -29,10 +29,10 @@
       <div class="form-group">
         <%= f.label :introduction,"販売ステータス" %>
 
-        <%= f.radio_button :is_active, "transfer" %>
+        <%= f.radio_button :is_active, Item.is_active.key(true) %>
         <%= f.label :is_active, "販売中" %>
 
-        <%= f.radio_button :is_active, "transfer" %>
+        <%= f.radio_button :is_active, Item.is_active.key(false) %>
         <%= f.label :is_active, "販売停止中" %>
       </div>
 
