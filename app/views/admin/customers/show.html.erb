@@ -27,7 +27,7 @@
 <%= @customer.is_deleted %><br>
 
 
-<%= form_with model: @customer, local:true do |f| %>
+<%= form_with model: @customer,url: customers_path, local:true do |f| %>
 
     <div class="form-group">
         <%= f.submit "編集する", class: 'btn btn-secondary' %>
