@@ -2,12 +2,12 @@
 <!--商品のステータスが「販売中」の場合-->
 <%# if @item.is_active == TRUE %>
 
-  <%= image_tag @item.item_image %>
+  <%= image_tag @item.item_image, size: "100x100" %>
   <h4><%= @item.name %></h4>
   <%= @item.introduction %><br>
   <p>¥<%= @item.price %>(税込)</p><br>
 
-  <%= form_with model: @item, url: cart_items_path, method: :post, local: true do |f| %>
+  <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
     <%= f.label :amount, "個数選択" %>
     <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
     <%= f.hidden_field :item_id, :value => @item.id %>
