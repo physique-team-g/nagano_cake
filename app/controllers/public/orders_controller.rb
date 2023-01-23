@@ -6,25 +6,18 @@ class Public::OrdersController < ApplicationController
   def order_check
     @order_check = current_customer.cart_items.all
     @order = Order.new(order_params)
-    if params[:order][:address_number] == "1"
-       @order.name = current_customer.name
-       @order.address = current_customer.customer_address
+    if params[:order][:address_number] == "0"
+       @order.name = current_customer.last_name+current_customer.first_name
+       @order.address = current_customer.address
+       @order.post_code = current_customer.post_code
     elsif
-       params[:order][:address_number] == "2"
-      if Address.exists?(name: params[:order][:registered])
-         @order.name = Address.find(params[:order][:registered]).name
-         @order.address = Address.find(params[:order][:registered]).address
-      else
-      render :new
-      end
-    elsif params[:order][:address_number] == "3"
-      address_new = current_customer.addresses.new(address_params)
-      if address_new.save
-      else
-         render :new
-      end
+       params[:order][:address_number] == "1"
+       @order.name = Address.find(params[:order][:address_id]).name
+       @order.address = Address.find(params[:order][:address_id]).address
+       @order.post_code = Address.find(params[:order][:address_id]).post_code
+    elsif params[:order][:address_number] == "2"
     else
-      redirect_to 遷移したいページ
+      redirect_to cart_items_path
     end
   end
 
@@ -69,7 +62,7 @@ class Public::OrdersController < ApplicationController
 end
 
 def order_params
-  params.require(:order).permit(:name, :address, :total_price)
+  params.require(:order).permit(:name, :address, :total_price, :post_code)
 end
 
 def address_params
