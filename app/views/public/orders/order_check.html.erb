@@ -85,7 +85,9 @@
      <p>お届け先</p>
    </td>
    <td>
-     <%= @order.address %>
+     〒<%= @order.post_code %>
+     <%= @order.address %><br>
+     <%= @order.name %>
    </td>
 </table>
 <p>注文を確定する</p>
