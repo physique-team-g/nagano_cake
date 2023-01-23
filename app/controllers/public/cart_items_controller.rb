@@ -7,20 +7,20 @@ class Public::CartItemsController < ApplicationController
     cart_item = CartItem.find(params[:id])
     cart_item.update(cart_item_params)
     @cart_items = CartItem.all
-    render 'index'
+    redirect_to cart_items_path
   end
 
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
     @cart_items = CartItem.all
-    render 'index'
+    redirect_to cart_items_path
   end
 
   def destroy_all
      cart_items = CartItem.all
      cart_items.destroy_all
-     render 'index'
+     redirect_to cart_items_path
   end
 
   def create
@@ -37,7 +37,7 @@ class Public::CartItemsController < ApplicationController
      else
         render 'index'
      end
-   end
+  end
 
    private
     def cart_item_params
