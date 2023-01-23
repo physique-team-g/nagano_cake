@@ -49,8 +49,8 @@
      <p>送料</p>
    </td>
    <td>
-     <% sendtotal = 800 %>
-     <%= sendtotal %>
+     <% shipping_cost = 800 %>
+     <%= shipping_cost %>
    </td>
 </tr>
 <tr>
@@ -66,17 +66,17 @@
      <p>請求金額</p>
    </td>
    <td>
-     <%= total += sendtotal %>
+     <%= total += shipping_cost %>
    </td>
 </tr>
 </table>
-<% @order.each do |order| %>
+
 <table>
    <td>
      <p>支払い方法</p>
    </td>
    <td>
-     <%= order.payment_method %>
+     <%= @order.payment_method %>
    </td>
 </table>
 
@@ -85,8 +85,7 @@
      <p>お届け先</p>
    </td>
    <td>
-     <%= order.address %>
+     <%= @order.address %>
    </td>
 </table>
-<% end %>
 <p>注文を確定する</p>
