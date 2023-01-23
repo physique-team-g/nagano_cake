@@ -4,12 +4,23 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(cart_item_params)
+    @cart_items = CartItem.all
+    render 'index'
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    @cart_items = CartItem.all
+    render 'index'
   end
 
   def destroy_all
+     cart_items = CartItem.all
+     cart_items.destroy_all
+     render 'index'
   end
 
   def create
