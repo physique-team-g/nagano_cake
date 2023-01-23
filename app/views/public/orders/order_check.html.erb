@@ -1,2 +1,92 @@
-<h1>Orders#order_check</h1>
-<p>Find me in app/views/orders/order_check.html.erb</p>
+<h3>注文情報確認</h3>
+
+<table border="1" style="border-collapse: collapse">
+<thead>
+<tr>
+   <td>
+     <p>商品名</p>
+   </td>
+   <td>
+     <p>単価(税込)</p>
+   </td>
+   <td>
+     <p>数量</p>
+   </td>
+   <td>
+     <p>小計</p>
+   </td>
+</tr>
+</thead>
+<% total = 0 %>
+<% if current_customer.cart_items.present? %>
+<% @order_check.each do |order_check| %>
+<tbody>
+  <tr>
+   <td>
+     <%= image_tag order_check.item.item_image, size: "100x100" %>
+     <%= order_check.item.name %>
+   </td>
+   <td>
+     <%= (order_check.item.price*1.08).to_i %>
+   </td>
+   <td>
+     <%= order_check.amount %>
+   </td>
+   <td>
+     <% subtotal = ((order_check.item.price*order_check.amount)*1.08).to_i %>
+     <%= subtotal %>
+   </td>
+</tr>
+</tbody>
+<% total += subtotal %>
+<% end %>
+<% end %>
+</table>
+
+<table border="1" style="border-collapse: collapse">
+<tr>
+   <td>
+     <p>送料</p>
+   </td>
+   <td>
+     <% sendtotal = 800 %>
+     <%= sendtotal %>
+   </td>
+</tr>
+<tr>
+   <td>
+     <p>商品合計</p>
+   </td>
+   <td>
+     <%= total %>
+   </td>
+</tr>
+<tr>
+   <td>
+     <p>請求金額</p>
+   </td>
+   <td>
+     <%= total += sendtotal %>
+   </td>
+</tr>
+</table>
+<% @order.each do |order| %>
+<table>
+   <td>
+     <p>支払い方法</p>
+   </td>
+   <td>
+     <%= order.payment_method %>
+   </td>
+</table>
+
+<table>
+   <td>
+     <p>お届け先</p>
+   </td>
+   <td>
+     <%= order.address %>
+   </td>
+</table>
+<% end %>
+<p>注文を確定する</p>

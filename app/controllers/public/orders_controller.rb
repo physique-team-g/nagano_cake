@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_check
+    @order_check = current_customer.cart_items.all
+    @order = Order.all
   end
 
   def order_finish
