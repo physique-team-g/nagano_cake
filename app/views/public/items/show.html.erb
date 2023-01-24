@@ -2,7 +2,7 @@
 <!--商品のステータスが「販売中」の場合-->
 <%# if @item.is_active == TRUE %>
 
-  <%= image_tag @item.item_image, size: "100x100" %>
+  <%= image_tag @item.get_item_image(100,100) %>
   <h4><%= @item.name %></h4>
   <%= @item.introduction %><br>
   <p>¥<%= @item.price %>(税込)</p><br>

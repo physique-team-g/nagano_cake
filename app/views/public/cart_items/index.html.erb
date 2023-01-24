@@ -32,7 +32,7 @@
 <tbody>
   <tr>
    <td>
-     <%= image_tag cart_item.item.item_image, size: "100x100" %>
+     <%= image_tag cart_item.item.get_item_image(100,100) %>
      <%= cart_item.item.name %>
    </td>
    <td>
