@@ -17,10 +17,10 @@
        <td>支払方法</td>
        <td><%= @order.payment_method %></td>
      </tr>
-   <% end %>
+
      <tr>
        <td>注文ステータス</td>
-       <% form_with model: @order, url: admin_order_path(@order) %>
+       <%= form_with model: @order, url: admin_order_path(@order) %>
        <td><%= f.select :status, *[0..4] %></td>
        <td><%= f.submit "更新" %></td>
        <% end %>
@@ -45,7 +45,7 @@
       <td><%= order.order_details.amount %></td>
       <td><%= order.order_details.price*order.order_details.amount %></td>
   <% end %>
-  <% form_with model: @order, url: admin_order_path(@order) %>
+  <%= form_with model: @order, url: admin_order_path(@order) %>
     <td><%= f.select :product_status, *[0..3] %></td>
     <td><%= f.submit "更新" %></td>
   <% end %>
