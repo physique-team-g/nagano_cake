@@ -19,12 +19,12 @@
       <tr>
         <!--注文日-->
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-
+        
         <!--配送先（郵便番号、住所、宛名）-->
         <td>〒<%= order.post_code %><br>
             <%= order.address %><br>
             <%= order.name %></td>
-
+            
         <!--注文商品-->
         <td>
           <% order.order_details.each do |order_detail| %>
@@ -36,8 +36,8 @@
         <td><%= order.total_payment.to_s(:delimited) %>円</td>
 
         <!--ステータス-->
-        <td><%= order.status_i18n %></td>
-
+        <td><%= order.status %></td>
+        
         <!--注文詳細ボタン-->
         <td><%= link_to "表示する(リンク先要編集)", order_path(order.id), class: "btn btn-sm btn-primary" %></td>
       </tr>

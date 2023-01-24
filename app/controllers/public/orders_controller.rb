@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
       redirect_to cart_items_path
     end
   end
-
+  
   def order_finish
   end
 
