@@ -1,5 +1,5 @@
 <h3>注文情報確認</h3>
-<%= form_with model: @order_check, url: orders_path, local:true do |f| %>
+<%= form_with model: @order, url: orders_path, local:true do |f| %>
 <table border="1" style="border-collapse: collapse">
 <thead>
 <tr>
@@ -17,7 +17,7 @@
    </td>
 </tr>
 </thead>
-<% total = 0 %>
+<% @order.total_payment = 0 %>
 <% if current_customer.cart_items.present? %>
 <% @order_check.each do |order_check| %>
 <tbody>
@@ -38,7 +38,7 @@
    </td>
 </tr>
 </tbody>
-<% total += subtotal %>
+<% @order.total_payment += subtotal %>
 <% end %>
 <% end %>
 </table>
@@ -49,8 +49,8 @@
      <p>送料</p>
    </td>
    <td>
-     <% shipping_cost = 800 %>
-     <%= shipping_cost %>
+     <% @order.shipping_cost = 800 %>
+     <%= @order.shipping_cost %>
    </td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@
      <p>商品合計</p>
    </td>
    <td>
-     <%= total %>
+     <%= @order.total_payment %>
    </td>
 </tr>
 <tr>
@@ -66,7 +66,7 @@
      <p>請求金額</p>
    </td>
    <td>
-     <%= total += shipping_cost %>
+     <%= @order.total_payment += @order.shipping_cost %>
    </td>
 </tr>
 </table>
@@ -90,5 +90,11 @@
      <%= @order.name %>
    </td>
 </table>
+<%= f.hidden_field :post_code, :value => @order.post_code %>
+<%= f.hidden_field :address, :value => @order.address %>
+<%= f.hidden_field :name, :value => @order.name %>
+<%= f.hidden_field :shipping_cost, :value => @order.shipping_cost %>
+<%= f.hidden_field :total_payment, :value => @order.total_payment %>
+
 <%= f.submit "注文を確定する", class: 'btn btn-secondary' %>
 <% end %>
