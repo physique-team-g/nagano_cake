@@ -6,10 +6,10 @@
   <div class="form-group">
     <%= f.label :payment_method, "支払方法" %>
       <br>
-    <%= f.radio_button :payment_method, 0, checked: "checked" %>
+    <%= f.radio_button :payment_method,"credit_card" , checked: "checked" %>
     <%= f.label :payment_method, "クレジットカード" %>
       <br>
-    <%= f.radio_button :payment_method, 1 %>
+    <%= f.radio_button :payment_method,"transfer" %>
     <%= f.label :payment_method, "銀行振込" %>
   </div>
 
