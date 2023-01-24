@@ -1,15 +1,13 @@
 <h4>注文情報入力</h4>
 
-<%= form_with model: @order, url: order_check_path, local:true do |f| %>
-
 <!--支払方法選択のラジオボタン-->
   <div class="form-group">
     <%= f.label :payment_method, "支払方法" %>
       <br>
-    <%= f.radio_button :payment_method, 0, checked: "checked" %>
+    <%= f.radio_button :payment_method,"credit_card" , checked: "checked" %>
     <%= f.label :payment_method, "クレジットカード" %>
       <br>
-    <%= f.radio_button :payment_method, 1 %>
+    <%= f.radio_button :payment_method,"transfer" %>
     <%= f.label :payment_method, "銀行振込" %>
   </div>
 
@@ -46,6 +44,5 @@
       </table>
   </div>
 
-<%= f.submit '確認画面へ進む', class:"btn btn-success" %>
 
 <% end %>

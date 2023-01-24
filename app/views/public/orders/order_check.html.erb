@@ -1,5 +1,5 @@
 <h3>注文情報確認</h3>
-
+<%= form_with model: @order_check, url: orders_path, local:true do |f| %>
 <table border="1" style="border-collapse: collapse">
 <thead>
 <tr>
@@ -76,7 +76,7 @@
      <p>支払い方法</p>
    </td>
    <td>
-     <%= @order.payment_method %>
+     <%= @order.payment_method_i18n %>
    </td>
 </table>
 
@@ -90,4 +90,4 @@
      <%= @order.name %>
    </td>
 </table>
-<p>注文を確定する</p>
+<%= f.submit "注文を確定する", class: 'btn btn-secondary' %>
