@@ -1,5 +1,7 @@
 <h4>注文情報入力</h4>
+
  <%= form_with model: @order, url: order_check_path, local:true do |f| %>
+
 <!--支払方法選択のラジオボタン-->
   <div class="form-group">
     <%= f.label :payment_method, "支払方法" %>
@@ -44,6 +46,5 @@
       </table>
       <%= f.submit '確認画面へ進む', class:"btn btn-success" %>
   </div>
-
-
+<%= f.submit '確認画面へ進む', class:"btn btn-success" %>
 <% end %>
