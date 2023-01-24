@@ -14,21 +14,21 @@
       <tr>
         <!--注文日-->
         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-        
+
         <!--配送先（郵便番号、住所、宛名）-->
         <td>〒<%= @order.post_code %><br>
             <%= @order.address %><br>
             <%= @order.name %></td>
         <!--支払い方法-->
-        <td><%= @order.payment_method %></td>
+        <td><%= @order.payment_method_i18n %></td>
         <!--ステータス-->
-        <td><%= @order.status %></td>
+        <td><%= @order.status_i18n %></td>
       </tr>
     </tbody>
   </table>
-  
+
   <h4>請求情報</h4>
-  
+
   <table border="1" style="border-collapse: collapse">
     <thead>
     <tr>
@@ -49,9 +49,9 @@
       </tr>
     </tbody>
   </table>
-  
+
   <h4>注文内容</h4>
-  
+
   <table border="1" style="border-collapse: collapse">
     <thead>
     <tr>
