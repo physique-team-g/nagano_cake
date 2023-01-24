@@ -15,7 +15,8 @@ class Public::OrdersController < ApplicationController
        @order.name = Address.find(params[:order][:address_id]).name
        @order.address = Address.find(params[:order][:address_id]).address
        @order.post_code = Address.find(params[:order][:address_id]).post_code
-    elsif params[:order][:address_number] == "2"
+    elsif
+       params[:order][:address_number] == "2"
     else
       redirect_to cart_items_path
     end
@@ -62,7 +63,7 @@ class Public::OrdersController < ApplicationController
 end
 
 def order_params
-  params.require(:order).permit(:name, :address, :total_price, :post_code)
+  params.require(:order).permit(:name, :address, :total_price, :post_code, :payment_method)
 end
 
 def address_params
