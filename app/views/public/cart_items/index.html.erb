@@ -28,12 +28,12 @@
 </tr>
 </thead>
 <% total = 0 %>
-<% if current_customer.cart_items.present? %>
+
 <% @cart_items.each do |cart_item| %>
 <tbody>
   <tr>
    <td>
-     <%= image_tag cart_item.item.item_image, size: "100x100" %>
+     <%= image_tag cart_item.item.get_item_image(100,100) %>
      <%= cart_item.item.name %>
    </td>
    <td>
@@ -55,7 +55,6 @@
 </tr>
 </tbody>
 <% total += subtotal %>
-<% end %>
 <% end %>
 </table>
 

@@ -5,7 +5,7 @@
 <!--イメージタグを入れる-->
 
 <%#= image_tag item.image %>
-<p><%= image_tag item.item_image, size: '50x50' %></p>
+<p><%= image_tag item.get_item_image(100,100) %></p>
 
 <!--商品名-->
 <p><%= item.name %></p>
