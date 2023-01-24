@@ -65,13 +65,13 @@
     <tbody>
       <tr>
         <!--商品-->
-        <td><%= @order.item.name %></td>
+        <td><%= @order.name %></td>
         <!--単価（税込）-->
-        <td><%= @order.item.price %></td>
+        <td><%= @order.order_details.price*1.08 %></td>
         <!--個数-->
-        <td><%= @order.items.count %></td>
+        <td><%= @order.count %></td>
         <!--小計-->
-        <td><%= @order.item.price *= @order.item.count %></td>
+        <td><%= @order.price *= @order.item.count %></td>
       </tr>
     </tbody>
   </table>
