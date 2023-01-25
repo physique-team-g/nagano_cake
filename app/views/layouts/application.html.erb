@@ -13,8 +13,9 @@
 
 <header>
 <%= link_to root_path do %>
-  LOGO
+  <h3>長野ケーキ</h3>
 <% end %>
+
 <div class="d-flex flex-row-reverse bd-highlight">
   <% if customer_signed_in? %>
       <div class="p-2 bd-highlight">
@@ -37,10 +38,9 @@
          マイページ
         <% end %>
       </div>
-      
-       
-       
+
   <% else %>
+  
       <div class="p-2 bd-highlight">
         <%=  link_to customer_session_path do %>
          ログイン
@@ -61,8 +61,8 @@
          About
         <% end %>
       </div>
-      
-       
+
+
   <% end %>
   </div>
 </header>

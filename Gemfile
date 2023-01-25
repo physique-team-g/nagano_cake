@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "enum_help"
 gem 'pry-rails'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
