@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+before_action :authenticate_admin!
+
   def index
     @items = Item.all
   end
@@ -27,9 +29,12 @@ class Admin::ItemsController < ApplicationController
     item.update(item_params)
     redirect_to admin_item_path(item)
   end
-end
 
-private
+
+  private
+
   def item_params
     params.require(:item).permit(:genre_id, :name, :price, :introduction, :is_active, :item_image)
   end
+
+end
