@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
     resources :customers, only: [:index, :show, :edit, :update]
 
-    patch "orders/update_status" => "orders#update_status", as: "update"
     resources :orders, only: [:index, :show, :update]
 
     resources :order_details, only: [:update]
