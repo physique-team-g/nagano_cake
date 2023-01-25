@@ -23,7 +23,7 @@
          <td>
          <%= form_with model: @order, url: admin_order_path(@order) do |f| %>
          <%= f.select :status, Order.statuses_i18n.invert %>
-         <%= f.submit "更新" %>
+         <%= f.submit "更新", class: "btn btn-success btn-sm" %>
          <% end %>
         </td>
      </tr>
@@ -50,7 +50,7 @@
         <td>
           <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
           <%= f.select :product_status, OrderDetail.product_statuses_i18n.invert %>
-          <%= f.submit "更新" %>
+          <%= f.submit "更新" ,class: "btn btn-success btn-sm" %>
           <% end %>
         </td>
       </tr>
