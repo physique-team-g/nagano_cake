@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+before_action :authenticate_customer!
+
   def new
     @order = Order.new
   end
@@ -21,7 +23,7 @@ class Public::OrdersController < ApplicationController
       redirect_to cart_items_path
     end
   end
-  
+
   def order_finish
   end
 
@@ -60,12 +62,16 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
-end
 
-def order_params
-  params.require(:order).permit(:name, :address, :total_payment, :post_code, :payment_method, :shipping_cost)
-end
 
-def address_params
-  params.require(:order).permit(:name, :address)
+  private
+
+  def order_params
+    params.require(:order).permit(:name, :address, :total_payment, :post_code, :payment_method, :shipping_cost)
+  end
+
+  def address_params
+    params.require(:order).permit(:name, :address)
+  end
+
 end

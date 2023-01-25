@@ -23,7 +23,7 @@
 <tbody>
   <tr>
    <td>
-     <%= image_tag order_check.item.item_image, size: "100x100" %>
+     <%= image_tag order_check.item.get_item_image(150,200) %>
      <%= order_check.item.name %>
    </td>
    <td>
