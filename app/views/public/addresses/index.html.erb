@@ -7,7 +7,7 @@
      <p>郵便番号(ハイフンなし)</p>
    </td>
    <td>
-      <%= f.text_field :post_code  %>
+      <%= f.text_field :post_code,placeholder: "0000000"  %>
    </td>
 </tr>
 <tr>
@@ -15,7 +15,7 @@
      <p>住所</p>
    </td>
    <td>
-      <%= f.text_field :address %>
+      <%= f.text_field :address,placeholder: "東京都渋谷区代々木神園町0-0" %>
    </td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
      <p>宛名</p>
    </td>
    <td>
-      <%= f.text_field :name %>
+      <%= f.text_field :name,placeholder: "令和道子" %>
    </td>
    <td></td>
    <td>
