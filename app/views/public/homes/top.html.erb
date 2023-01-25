@@ -5,4 +5,21 @@
   購入には会員登録が必要になります。
 </p>
 
+<% @items.each do |item| %>
+
+<!--イメージタグを入れる-->
+
+<%= link_to item_path(item.id) do %>
+  <%#= image_tag item.image %>
+  <%= image_tag item.get_item_image(100,100) %>
+<% end %><br>
+
+<!--商品名-->
+<p><%= item.name %></p>
+
+<!--金額 ※税抜になっているので税込みの計算式を入れる？-->
+<p>¥<%= item.price.to_s(:delimited) %></p>
+
+<% end %>
+
 <%= link_to "全ての商品を見る＞",  items_path %>
