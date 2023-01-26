@@ -5,7 +5,7 @@ private
       if namespace_or_scope.is_a?(Admin)
          admin_top_path
       else
-         root_path
+         customers_path
       end
   end
 

@@ -1,6 +1,4 @@
 class Admin::OrderDetailsController < ApplicationController
-before_action :authenticate_admin!
-
   def update
     @order_detail = OrderDetail.find(params[:id])
     @order = @order_detail.order
@@ -19,11 +17,8 @@ before_action :authenticate_admin!
     redirect_to admin_order_path(@order)
   end
 
-
   private
-
-  def order_details_params
+   def order_details_params
     params.require(:order_detail).permit(:product_status)
-  end
-
+   end
 end
