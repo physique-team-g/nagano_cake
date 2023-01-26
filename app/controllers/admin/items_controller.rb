@@ -11,8 +11,12 @@ before_action :authenticate_admin!
 
   def create
     item = Item.new(item_params)
+    if params[:item][:genre_id].empty?
+       redirect_back fallback_location: root_path
+    else
     item.save
     redirect_to admin_items_path
+    end
   end
 
   def show
