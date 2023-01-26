@@ -5,8 +5,8 @@ before_action :authenticate_admin!
     @order_detail = OrderDetail.find(params[:id])
     @order = @order_detail.order
     @order_details = @order.order_details.all
-    @order_detail.update(order_details_params)
 
+    @order_detail.update(order_details_params)
     if @order_details.where(product_status: 2).count >= 1
       @order.status = 2
       @order.save
