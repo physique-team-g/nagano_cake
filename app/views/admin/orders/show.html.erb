@@ -3,7 +3,7 @@
 <table>
      <tr>
        <td>購入者</td>
-       <td><%= @order.name %></td>
+       <td><%= (@order.customer.last_name + @order.customer.first_name) %></td>
      </tr>
      <tr>
        <td>注文日</td>
@@ -11,7 +11,7 @@
      </tr>
      <tr>
        <td>配送先</td>
-       <td><%= @order.customer.address %></td>
+       <td><%= @order.address %></td>
      </tr>
      <tr>
        <td>支払方法</td>
