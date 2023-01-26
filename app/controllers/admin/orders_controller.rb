@@ -9,7 +9,10 @@ before_action :authenticate_admin!
 
   def update
     order = Order.find(params[:id])
-    order.update(order_params)
+    order_details = OrderDetail.where(order_id: params[:id])
+    if order.update(order_params)
+      order_details.update_all(product_status: 1) if order.status == "nyuukinkakunin"
+    end
     redirect_to admin_order_path(order)
   end
 
@@ -18,10 +21,6 @@ before_action :authenticate_admin!
 
   def order_params
     params.require(:order).permit(:status)
-  end
-
-  def order_details_params
-    params.require(:order_details).permit(:product_status)
   end
 
 end
