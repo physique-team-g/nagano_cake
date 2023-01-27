@@ -1,57 +1,64 @@
-<h3>マイページ</h3>
-<h3>登録情報<%= link_to "編集する", edit_path, class:"btn btn-sm btn-success" %></h3>
+<div class='container'>
+   <div class='row p-3'>
+      <div class='mx-auto'>
 
-<table border="1" style="border-collapse: collapse">
-<tr>
-   <td>
-     <p>氏名</p>
-   </td>
-   <td>
-      <%= @customer.last_name  %>
-      <%= @customer.first_name  %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>カナ</p>
-   </td>
-   <td>
-      <%= @customer.last_name_kana  %>
-      <%= @customer.first_name_kana  %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>郵便番号</p>
-   </td>
-   <td>
-      <%= @customer.post_code  %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>住所</p>
-   </td>
-   <td>
-      <%= @customer.address  %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>電話番号</p>
-   </td>
-   <td>
-      <%= @customer.phone_number  %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>メールアドレス</p>
-   </td>
-   <td>
-      <%= @customer.email  %>
-   </td>
-</tr>
-</table>
-<h3>配送先<%= link_to "一覧を見る", addresses_path, class:"btn btn-primary" %></h3>
-<h3>注文履歴<%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></h3>
+     <h3>マイページ</h3>
+     <h3>登録情報<%= link_to "編集する", edit_path, class:"btn btn-sm btn-success" %></h3>
+
+     <table border="1" style="border-collapse: collapse">
+     <tr>
+        <td style = "background: #EEE;">
+          <p>氏名</p>
+        </td>
+        <td>
+           <%= @customer.last_name  %>
+           <%= @customer.first_name  %>
+        </td>
+     </tr>
+     <tr>
+        <td style = "background: #EEE;">
+          <p>カナ</p>
+        </td>
+        <td>
+           <%= @customer.last_name_kana  %>
+           <%= @customer.first_name_kana  %>
+        </td>
+     </tr>
+     <tr>
+        <td style = "background: #EEE;">
+          <p>郵便番号</p>
+        </td>
+        <td>
+           <%= @customer.post_code  %>
+        </td>
+     </tr>
+     <tr>
+        <td style = "background: #EEE;">
+          <p>住所</p>
+        </td>
+        <td>
+           <%= @customer.address  %>
+        </td>
+     </tr>
+     <tr>
+        <td style = "background: #EEE;">
+          <p>電話番号</p>
+        </td>
+        <td>
+           <%= @customer.phone_number  %>
+        </td>
+     </tr>
+     <tr>
+        <td style = "background: #EEE;">
+          <p>メールアドレス</p>
+        </td>
+        <td>
+           <%= @customer.email  %>
+        </td>
+     </tr>
+     </table>
+     <h3>配送先<%= link_to "一覧を見る", addresses_path, class:"btn btn-primary" %></h3>
+     <h3>注文履歴<%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></h3>
+     </div>
+   </div>
+</div>

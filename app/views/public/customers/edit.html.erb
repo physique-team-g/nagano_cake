@@ -1,69 +1,75 @@
-<h3>会員情報編集</h3>
-<%= form_with model: @customer,url: update_path do |f| %>
-<table>
-<tr>
-   <td>
-     <p>氏名</p>
-   </td>
-   <td>
-      <%= f.text_field :last_name %>
-   </td>
-   <td>
-      <%= f.text_field :first_name %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>カナ</p>
-   </td>
-   <td>
-      <%= f.text_field :last_name_kana %>
-   </td>
-   <td>
-      <%= f.text_field :first_name_kana %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>郵便番号</p>
-   </td>
-   <td>
-      <%= f.text_field :post_code %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>住所</p>
-   </td>
-   <td>
-      <%= f.text_field :address %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>電話番号</p>
-   </td>
-   <td>
-      <%= f.text_field :phone_number %>
-   </td>
-</tr>
-<tr>
-   <td>
-     <p>メールアドレス</p>
-   </td>
-   <td>
-      <%= f.text_field :email %>
-   </td>
-</tr>
-<tr>
-   <td></td>
-   <td>
-      <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %>
-   </td>
-   <td></td>
-   <td>
-      <%= link_to "退会する", withdrawal_path, class: "btn btn-sm btn-danger" %>
-   </td>
-</tr>
-</table>
-<% end %>
+  <div class='container'>
+     <div class='row p-3'>
+       <div class='mx-auto'>
+         <h3>会員情報編集</h3>
+         <%= form_with model: @customer,url: update_path do |f| %>
+         <table>
+         <tr>
+            <td>
+              <p>氏名</p>
+            </td>
+            <td>
+               <%= f.text_field :last_name %>
+            </td>
+            <td>
+               <%= f.text_field :first_name %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>カナ</p>
+            </td>
+            <td>
+               <%= f.text_field :last_name_kana %>
+            </td>
+            <td>
+               <%= f.text_field :first_name_kana %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>郵便番号</p>
+            </td>
+            <td>
+               <%= f.text_field :post_code %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>住所</p>
+            </td>
+            <td>
+               <%= f.text_field :address %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>電話番号</p>
+            </td>
+            <td>
+               <%= f.text_field :phone_number %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>メールアドレス</p>
+            </td>
+            <td>
+               <%= f.text_field :email %>
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td>
+               <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %>
+            </td>
+            <td></td>
+            <td>
+               <%= link_to "退会する", withdrawal_path, class: "btn btn-sm btn-danger" %>
+            </td>
+         </tr>
+         </table>
+         <% end %>
+      </div>
+   </div>
+</div>
