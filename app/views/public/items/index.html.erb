@@ -1,20 +1,25 @@
-<p><h3>商品一覧</3>（全<%= @items.count %>件)</p>
+<div class="container p-5">
+  <div class="row p-3">
+    <div class="mx-auto">
+      <p><h3>商品一覧</3>（全<%= @items.count %>件）</p>
+    </div>
+  </div>
 
-<% @items.each do |item| %>
+  <div class="row p-3">
+    <% @item_all.each do |item_all| %>
+      <div class="col-3 mx-auto">
+        <%= link_to item_path(item_all.id) do %>
+          <%= image_tag item_all.get_item_image(250,100) %>
+        <% end %>
+        <p><%= item_all.name %></p>
+        <p>¥<%= item_all.price.to_s(:delimited) %></p>
+      </div>
+    <% end %>
+  </div>
 
-<!--イメージタグを入れる-->
-
-<%= link_to item_path(item.id) do %>
-  <%#= image_tag item.image %>
-  <%= image_tag item.get_item_image(100,100) %>
-<% end %><br>
-
-<!--商品名-->
-<p><%= item.name %></p>
-
-<!--金額 ※税抜になっているので税込みの計算式を入れる？-->
-<p>¥<%= item.price.to_s(:delimited) %></p>
-
-<% end %>
-
-<%= paginate @items %>
+  <div class="row p-3">
+    <div class="col-3 mx-auto">
+        <%= paginate @item_all %>
+    </div>
+  </div>
+</div>

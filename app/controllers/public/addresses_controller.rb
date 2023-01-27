@@ -3,7 +3,7 @@ before_action :authenticate_customer!
 
   def index
     @address = Address.new
-    @addresses = Address.where(customer_id: current_customer.id)
+    @addresses = Address.all
   end
 
   def edit
