@@ -56,7 +56,7 @@ before_action :authenticate_customer!
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show

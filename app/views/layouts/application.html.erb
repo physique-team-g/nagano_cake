@@ -11,94 +11,95 @@
   </head>
 
   <header>
+  <!--ヘッダーのナビゲーションメニューとカラースキームの指定-->
+  <!--画面幅によってナビゲーションを折りたたむ-->
+  <nav class="navbar navbar-expand-lg" style="background-color: #DAC3B2;">
+  <div class="container">
+
+  <!--長野ケーキ（ロゴ）：トップに戻るルートパスを設定-->
   <%= link_to root_path do %>
-    <h2>LOGO</h2>
+    <%= image_tag 'nagano_physique.PNG', alt: 'logo用画像', size: '180x80' %>
   <% end %>
-  <div class="d-flex flex-row-reverse bd-highlight">
+
+  <!--ハンバーガーメニューへの切り替え-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--ナビゲーションが閉じたり開いたりする動作-->
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ml-auto">
+
     <% if customer_signed_in? %>
-        <div class="p-2 bd-highlight">
-          <%= link_to destroy_customer_session_path, method: :delete do %>
-           ログアウト
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to cart_items_path do %>
-            カート
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to items_path do %>
-           商品一覧
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to customers_path do %>
-           マイページ
-          <% end %>
-        </div>
+      <div style="margin: 10px; color: #fff;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
+        <li style="margin: 10px;">
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "カート", cart_items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "マイページ", customers_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
 
     <% elsif admin_signed_in? %>
-        <div class="p-2 bd-highlight">
-          <%= link_to destroy_admin_session_path, method: :delete do %>
-           ログアウト
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to admin_genres_path do %>
-           ジャンル一覧
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to admin_top_path do %>
-           注文履歴一覧
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to admin_customers_path do %>
-           会員一覧
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%= link_to admin_items_path do %>
-           商品一覧
-          <% end %>
-        </div>
+        <li style="margin: 10px;">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "注文履歴一覧", admin_top_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
 
     <% else %>
-        <div class="p-2 bd-highlight">
-          <%=  link_to customer_session_path do %>
-           ログイン
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%=  link_to new_customer_registration_path do %>
-            新規登録
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%=  link_to items_path do %>
-           商品一覧
-          <% end %>
-        </div>
-        <div class="p-2 bd-highlight">
-          <%=  link_to about_path do %>
-          About
-          <% end %>
-        </div>
+        <li style="margin: 10px;">
+          <%=  link_to "ログイン", customer_session_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "About", about_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
     <% end %>
   </div>
-  
-    <div class="search-box">
-      <input type="text" class="search-box__text" placeholder="Search">
-    </div> 
 
+    <div class="search-box" style="margin: 10px;">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <i class="fas fa-search"></i>
+    </div>
+</nav>
   </header>
 
   <main>
-    <%= yield %>
+
+        <%= yield %>
+
   </main>
 
-  <footer>
+  <footer class="footer" style="background-color: #DAC3B2; padding: 30px; color: #fff;">
+    <div class="container">
+    <div class="row">
+      <div class="mx-auto">
+        CopyRight team-Physique
+      </div>
+    </div>
+  </div>
   </footer>
 
 </html>
