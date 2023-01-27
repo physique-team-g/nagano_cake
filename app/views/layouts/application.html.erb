@@ -31,10 +31,8 @@
   <ul class="navbar-nav ml-auto">
 
     <% if customer_signed_in? %>
-
       <div style="margin: 10px;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
         <li style="margin: 10px;">
-
           <%= link_to destroy_customer_session_path, method: :delete do %>
            ログアウト
           <% end %>
@@ -65,13 +63,13 @@
           <%= link_to admin_genres_path do %>
            ジャンル一覧
           <% end %>
-        </li style="margin: 10px;">
-        <li>
+        </li>
+        <li style="margin: 10px;">
           <%= link_to admin_top_path do %>
            注文履歴一覧
           <% end %>
-        </li style="margin: 10px;">
-        <li>
+        </li>
+        <li style="margin: 10px;">
           <%= link_to admin_customers_path do %>
            会員一覧
           <% end %>
@@ -109,17 +107,14 @@
     <div class="search-box" style="margin: 10px;">
       <input type="text" class="search-box__text" placeholder="Search">
     </div>
-
+    </div>
+</nav>
   </header>
 
   <main>
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto">
+
         <%= yield %>
-        </div>
-      </div>
-    </div>
+
   </main>
 
   <footer class="footer" style="background-color: #DAC3B2; padding: 30px;">
