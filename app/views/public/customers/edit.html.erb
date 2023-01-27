@@ -1,9 +1,9 @@
   <div class='container'>
-     <div class='row p-3'>
+     <div class='row p-5'>
        <div class='mx-auto'>
          <h3>会員情報編集</h3>
          <%= form_with model: @customer,url: update_path do |f| %>
-         <table>
+         <table style="width:100%;">
          <tr>
             <td>
               <p>氏名</p>
@@ -58,6 +58,7 @@
                <%= f.text_field :email %>
             </td>
          </tr>
+         
          <tr>
             <td></td>
             <td>
