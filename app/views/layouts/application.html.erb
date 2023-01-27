@@ -36,6 +36,7 @@
            マイページ
           <% end %>
         </div>
+        <div>ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
 
     <% elsif admin_signed_in? %>
         <div class="p-2 bd-highlight">
@@ -87,10 +88,10 @@
         </div>
     <% end %>
   </div>
-  
+
     <div class="search-box">
       <input type="text" class="search-box__text" placeholder="Search">
-    </div> 
+    </div>
 
   </header>
 
