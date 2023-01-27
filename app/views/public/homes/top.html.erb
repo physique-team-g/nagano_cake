@@ -1,25 +1,38 @@
-<p>
-  ようこそ、ながのCAKEへ！<br>
-  このサイトは、ケーキ販売のECサイトになります。<br>
-  会員でない方も商品の閲覧はできますが、<br>
-  購入には会員登録が必要になります。
-</p>
+<div class="container p-5">
+  <div class="row p-3">
+    <div class="mx-auto">
+      <div style="position: relative; display:inline-block;">
+        <%= image_tag 'IMG_1303.jpg', alt: 'top用画像', size: '650x400' %>
+          <div style="position: absolute; top: 0; left: 0; max-width: 100%; max-height: 100%; padding: 30px; text-align: left; color: #E6DBD0;">
+          <p style="font-family: Hiragino Maru Gothic Pro;" >
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
 
-<% @items.each do |item| %>
+  <h3>新着商品</h3>
+  <div class="row p-3">
+    <% @items.each do |item| %>
+      <div class="col-2 mx-auto">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_item_image(250,100) %>
+        <% end %>
+        <p><%= item.name %></p>
+        <p>¥<%= item.price.to_s(:delimited) %></p>
+      </div>
+    <% end %>
+  </div>
 
-<!--イメージタグを入れる-->
+  <div class="row p-3">
+    <div class="col-12 text-right">
+      <%= link_to "全ての商品を見る▶▶", items_path %>
+    </div>
+  </div>
 
-<%= link_to item_path(item.id) do %>
-  <%#= image_tag item.image %>
-  <%= image_tag item.get_item_image(100,100) %>
-<% end %><br>
+</div>
 
-<!--商品名-->
-<p><%= item.name %></p>
-
-<!--金額 ※税抜になっているので税込みの計算式を入れる？-->
-<p>¥<%= item.price.to_s(:delimited) %></p>
-
-<% end %>
-
-<%= link_to "全ての商品を見る＞",  items_path %>
