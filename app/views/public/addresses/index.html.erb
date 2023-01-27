@@ -15,7 +15,7 @@
      <p>住所</p>
    </td>
    <td>
-      <%= f.text_field :address,placeholder: "東京都渋谷区代々木神園町0-0" %>
+      <%= f.text_field :address, :size=>"50",placeholder: "東京都渋谷区代々木神園町0-0" %>
    </td>
 </tr>
 <tr>
@@ -27,7 +27,7 @@
    </td>
    <td></td>
    <td>
-      <%= f.submit '新規登録' %>
+      <%= f.submit '新規登録', class:"btn btn-sm btn-success" %>
    </td>
 </tr>
 </table>
