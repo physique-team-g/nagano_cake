@@ -31,8 +31,10 @@
   <ul class="navbar-nav ml-auto">
 
     <% if customer_signed_in? %>
+
       <div style="margin: 10px;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
         <li style="margin: 10px;">
+
           <%= link_to destroy_customer_session_path, method: :delete do %>
            ログアウト
           <% end %>
