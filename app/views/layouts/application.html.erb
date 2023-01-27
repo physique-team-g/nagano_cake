@@ -31,82 +31,57 @@
   <ul class="navbar-nav ml-auto">
 
     <% if customer_signed_in? %>
-      <div style="margin: 10px;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
+      <div style="margin: 10px; color: #fff;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
         <li style="margin: 10px;">
-          <%= link_to destroy_customer_session_path, method: :delete do %>
-           ログアウト
-          <% end %>
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%= link_to cart_items_path do %>
-            カート
-          <% end %>
+          <%= link_to "カート", cart_items_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%= link_to items_path do %>
-           商品一覧
-          <% end %>
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%= link_to customers_path do %>
-           マイページ
-          <% end %>
+          <%= link_to "マイページ", customers_path, class: "btn btn-outline-light btn-sm" %>
         </li>
 
     <% elsif admin_signed_in? %>
         <li style="margin: 10px;">
-          <%= link_to destroy_admin_session_path, method: :delete do %>
-           ログアウト
-          <% end %>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%= link_to admin_genres_path do %>
-           ジャンル一覧
-          <% end %>
-        </li style="margin: 10px;">
-        <li>
-          <%= link_to admin_top_path do %>
-           注文履歴一覧
-          <% end %>
-        </li style="margin: 10px;">
-        <li>
-          <%= link_to admin_customers_path do %>
-           会員一覧
-          <% end %>
+          <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%= link_to admin_items_path do %>
-           商品一覧
-          <% end %>
+          <%= link_to "注文履歴一覧", admin_top_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light btn-sm" %>
         </li>
 
     <% else %>
         <li style="margin: 10px;">
-          <%=  link_to customer_session_path do %>
-           ログイン
-          <% end %>
+          <%=  link_to "ログイン", customer_session_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%=  link_to new_customer_registration_path do %>
-            新規登録
-          <% end %>
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%=  link_to items_path do %>
-           商品一覧
-          <% end %>
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
         </li>
         <li style="margin: 10px;">
-          <%=  link_to about_path do %>
-          About
-          <% end %>
+          <%= link_to "About", about_path, class: "btn btn-outline-light btn-sm" %>
         </li>
     <% end %>
   </div>
 
     <div class="search-box" style="margin: 10px;">
-      <input type="text" class="search-box__text" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search">
     </div>
+    <i class="fas fa-search"></i>
 
   </header>
 
@@ -114,7 +89,7 @@
     <%= yield %>
   </main>
 
-  <footer class="footer" style="background-color: #DAC3B2; padding: 30px;">
+  <footer class="footer" style="background-color: #DAC3B2; padding: 30px; color: #fff;">
     <div class="container">
     <div class="row">
       <div class="mx-auto">
