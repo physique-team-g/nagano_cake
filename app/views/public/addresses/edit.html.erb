@@ -14,7 +14,7 @@
      <p>住所</p>
    </td>
    <td>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, :size=>"50" %>
    </td>
 </tr>
 <tr>
@@ -26,7 +26,7 @@
    </td>
    <td></td>
    <td>
-      <%= f.submit '編集内容を保存' %>
+      <%= f.submit '変更内容を保存',class: "btn btn-sm btn-success" %>
    </td>
 </tr>
 </table>
