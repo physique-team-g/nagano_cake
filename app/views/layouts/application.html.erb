@@ -23,7 +23,7 @@
 
   <!--ハンバーガーメニューへの切り替え-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"><i class= "fas fa-list"></i></span>
+  <span class="navbar-toggler-icon"></span>
   </button>
 
   <!--ナビゲーションが閉じたり開いたりする動作-->
@@ -81,7 +81,7 @@
     <div class="search-box" style="margin: 10px;">
       <input type="text" class="form-control" placeholder="Search">
     </div>
-    <i class="fas fa-search"></i>
+    <i class="fas fa-search" style="color:#fff;"></i>
     </div>
 </nav>
   </header>
@@ -90,11 +90,15 @@
     <%= yield %>
   </main>
 
-  <footer class="footer" style="background-color: #DAC3B2; padding: 30px; color: #fff;">
+  <footer class="footer" style="background-color: #DAC3B2; padding: 10px;">
     <div class="container">
     <div class="row">
       <div class="mx-auto">
-        CopyRight team-Physique
+        <i class="fab fa-line" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-twitter-square" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-instagram" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-youtube-square" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <p style="color: #fff; text-align: center;">CopyRight team-Physique</p>
       </div>
     </div>
   </div>
