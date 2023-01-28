@@ -4,6 +4,7 @@
          <h3>会員情報編集</h3>
          <%= form_with model: @customer,url: update_path do |f| %>
          <table style="width:100%;">
+         <p style="padding-top: 10px;">
          <tr>
             <td>
               <p>氏名</p>
@@ -39,7 +40,7 @@
               <p>住所</p>
             </td>
             <td>
-               <%= f.text_field :address %>
+               <%= f.text_field :address, :size=>"30" %>
             </td>
          </tr>
          <tr>
@@ -55,18 +56,18 @@
               <p>メールアドレス</p>
             </td>
             <td>
-               <%= f.text_field :email %>
+               <%= f.text_field :email, :size=>"30" %>
             </td>
          </tr>
          
          <tr>
             <td></td>
-            <td>
-               <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %>
+            <td><p style="padding-top: 50px;">
+               <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %></p>
             </td>
             <td></td>
-            <td>
-               <%= link_to "退会する", withdrawal_path, class: "btn btn-sm btn-danger" %>
+            <td><p style="padding-top: 50px;">
+               <%= link_to "退会する", withdrawal_path, class: "btn btn-sm btn-danger" %></p>
             </td>
          </tr>
          </table>
