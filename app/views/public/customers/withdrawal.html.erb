@@ -1,9 +1,15 @@
-<h4>本当に退会しますか？</h4>
+<div class="container" style="margin: 150px; ">
+ <div class='row'>
+  <div class='mx-auto'>
+   <h4>本当に退会しますか？</h4>
 
-<p>退会すると、会員登録情報や</br>
-<p>これまでの購入履歴が閲覧できなくなります。</br>
-<p>退会する場合は、「退会する」をクリックしてください。</br></p>
+    <p>退会すると、会員登録情報や</br>
+    <p>これまでの購入履歴が閲覧できなくなります。</br>
+    <p>退会する場合は、「退会する」をクリックしてください。</br></p>
 
-<!--リンクは後から書き換えます-->
-<%= link_to "退会しない", customers_path, class: "btn btn-sm btn-success" %>
-<%= link_to "退会する", status_path, method: :patch, class: "btn btn-sm btn-danger" %>
+    <!--リンクは後から書き換えます-->
+    <%= link_to "退会しない", customers_path, class: "btn btn-sm btn-success" %>
+    <%= link_to "退会する", status_path, method: :patch, class: "btn btn-sm btn-danger" %>
+    </div>
+  </div>
+</div>

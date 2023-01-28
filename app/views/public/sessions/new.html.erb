@@ -1,29 +1,39 @@
-<div class="container p-5">
-  <div class="row p-3">
-    <div class="mx-auto">
-      <h3>ログイン</h3>
-      <strong style="background-color: #EEE;">会員の方はこちらからログイン</strong>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com" %>
-        </div>
-        <div class="field">
+<div class="login-container", style= "margin:100px 0px 100px;">
+  <div class= "d-flex justify-content-center h-100">
+    <div class= "card">
+      <div class= "card-header">
+        <h3>ログイン</h3>
+      </div>
+      
+      <div class= "card-body">
+        <strong style="background-color: #EEE;">会員の方はこちらからログイン</strong>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <i class= "fas fa-user"></i>
+            <%= f.label :email, "メールアドレス" %>
+            <div class="form-control">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com" %>
+            </div>
+          </div>
+          
+        <div class="form-group">
+          <i class = "fas fa-key"></i>
           <%= f.label :password, "パスワード" %>
+          <div class="form-control">
           <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
         </div>
+        
         <div class="actions text-right">
           <%= f.submit "ログイン", class:"btn btn-sm btn-primary" %>
         </div>
       <% end %>
-    </div>
-  </div>
 
-  <div class="row ">
-    <div class="mx-auto">
-      <strong style="background-color: #EEE;">会員登録がお済みでない方</strong>
+    <strong style="background-color: #EEE;">会員登録がお済みでない方</strong>
       <br>
       <%= render "public/shared/links", class:"btn btn-sm btn-primary" %>から新規登録を行ってください。
+    </div>
+    
     </div>
   </div>
 </div>
