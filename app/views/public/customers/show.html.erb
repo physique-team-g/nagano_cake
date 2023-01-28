@@ -2,8 +2,17 @@
    <div class='row p-3'>
       <div class='col-11'>
 
-     <h4><span style = "background-color: #EEE; padding: 0 20px;">マイページ</span></h4>
-     <h5>登録情報<%= link_to "編集する", edit_path, class:"btn btn-sm btn-success" %></h5>
+     <h3>マイページ</h3>
+     <table style = "margin-bottom: 20px;">
+       <tr>
+         <th style = "padding-right: 30px;">
+           登録情報
+         </th>
+         <td>
+           <%= link_to "編集する", edit_path, class:"btn btn-sm btn-success" %>
+         </td>
+       </tr>
+     </table>
 
      <table border="1" style="border-collapse: collapse; width: 50%; text-align: center;">
         <td style = "background: #EEE;">
@@ -57,8 +66,24 @@
      </tr>
      </table>
      <br>
-     <h5>配送先<%= link_to "一覧を見る", addresses_path, class:"btn btn-sm btn-primary" %></h5>
-     <h5>注文履歴<%= link_to "一覧を見る", orders_path, class:"btn btn-sm btn-primary" %></h5>
+     <table>
+       <tr>
+         <th style = "padding-right: 30px;">
+           配送先
+         </th>
+         <td>
+           <%= link_to "一覧を見る", addresses_path, class:"btn btn-sm btn-primary" %>
+         </td>
+       </tr>
+       <tr>
+         <th style = "padding-right: 30px;">
+           注文履歴
+         </th>
+         <td>
+           <%= link_to "一覧を見る", orders_path, class:"btn btn-sm btn-primary" %>
+         </td>
+       </tr>
+     </table>
      </div>
    </div>
 </div>
