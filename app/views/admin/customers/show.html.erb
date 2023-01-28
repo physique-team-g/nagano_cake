@@ -1,2 +1,98 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+ <div class="row p-3">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+    <h4><span style = "background-color: #EEE; padding: 0 20px;">
+    <%= @customer.last_name %>
+    <%= @customer.first_name %>さんの会員詳細</span></h4><br>
+    <table style = "width: 100%;">
+        <tr>
+            <th>
+                <p>会員ID</p>
+            </th>
+            <td>
+                <p><%= @customer.id %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>氏名</p>
+            </th>
+            <td>
+                <p><%= @customer.last_name %><%= @customer.first_name %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>フリガナ</p>
+            </th>
+            <td>
+                <p><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>郵便番号</p>
+            </th>
+            <td>
+                <p><%= @customer.post_code %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>住所</p>
+            </th>
+            <td>
+                <p><%= @customer.address %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>電話番号</p>
+            </th>
+            <td>
+                <p><%= @customer.phone_number %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>メールアドレス</p>
+            </th>
+            <td>
+                <p><%= @customer.email %></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p>会員ステータス</p>
+            </th>
+            <td valign = "top">
+                <% if @customer.is_deleted %>
+                   <p class = text-danger>退会</p>
+                <% else %>
+                   <p class = text-success>有効</p>
+                <% end %>
+            </td>
+        </tr>
+
+        <tr>
+           <td></td>
+           <td>
+              <p><%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-sm btn-success" %></p>
+           </td>
+           <td>
+              <p><%= link_to "注文履歴一覧を見る", admin_top_path, class:"btn btn-sm btn-primary" %></p>
+           </td>
+        </tr>
+    </table>
+
+  </div>
+ </div>
+</div>

@@ -1,0 +1,20 @@
+  ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+        status:
+          nyuukinmati: "入金待ち"
+          nyuukinkakunin: "入金確認"
+          seisakutyuu: "製作中"
+          hassouzyunbityuu: "発送準備中"
+          hassouzumi: "発送済み"
+
+      order_detail:
+        product_status:
+          tyakusyuhuka: "着手不可"
+          tyakusyumati: "着手待ち"
+          seisakutyuu: "製作中"
+          seisakukanryou: "製作完了"
+

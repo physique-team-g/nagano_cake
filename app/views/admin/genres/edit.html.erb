@@ -1,8 +1,14 @@
-<h3>ジャンル編集</h3>
-<%= form_with model: @genre, url: edit_admin_genre_path, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label "ジャンル名" %>
-    <%= f.text_field :name %>
-    <%= f.submit"変更を保存", class:"btn btn-success" %>
+<div class= "container">
+  <div class= "row p-3" style= "background-color:silver">
+    <h3>ジャンル編集</h3>
   </div>
-<% end %>
+  <div class= "row p-3">
+    <%= form_with model: @genre, url: admin_genre_path(@genre), local:true do |f| %>
+      <div class="form-group">
+          <%= f.label "ジャンル名", class: "m-3" %>
+          <%= f.text_field :name, class: "m-3" %>
+          <%= f.submit"変更を保存", class:"btn btn-success m-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>

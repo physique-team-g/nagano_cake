@@ -1,2 +1,93 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container p-3">
+
+    <h4><span style = "background-color: #EEE; padding: 0 20px;">
+    <%= @customer.last_name %>
+    <%= @customer.first_name %>さんの会員情報編集</span></h4>
+
+        <%= form_with model:@customer, url: admin_customer_path, local:true do |f| %>
+
+          <table style = "margin-left: 30px;">
+            <tr>
+              <th>
+                <p>会員ID</p>
+              </th>
+              <td valign = "top">
+                <p style="padding-left: 30px;"><%= @customer.id %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>
+               <p>氏名</p>
+              </th>
+              <td>
+                <p style="padding-left: 30px;"><%= f.text_field :last_name, class: "form-control last_name" %></P>
+              </td>
+              <td>
+                <p style="padding-left: 10px;"><%= f.text_field :first_name, class: "form-control first_name" %></p>
+              </td>
+              </th>
+            </tr>
+            <tr>
+              <th>
+               <p>フリガナ</p>
+              </th>
+              <td>
+                <p style="padding-left: 30px;"><%= f.text_field :last_name_kana, class: "form-control last_name_kana" %></p>
+              </td>
+              <td>
+                <p style="padding-left: 10px;"><%= f.text_field :first_name_kana, class: "form-control first_name_kana" %></p>
+              </th>
+            </tr>
+            <tr>
+              <th>
+               <p>郵便番号</p>
+              </th>
+              <td>
+               <p style="padding-left: 30px;"><%= f.text_field :post_code, class: "form-control post_code" %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>住所</p>
+              </th>
+              <td>
+               <p style="padding-left: 30px;"><%= f.text_field :address, class: "form-control address" %></p>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>電話番号</p>
+              </th>
+              <td>
+                <p style="padding-left: 30px;"><%= f.text_field :phone_number, class: "form-control phone_number" %></p>
+              </td>
+            </tr>
+              <th>
+                <p>メールアドレス</p>
+              </th>
+              <td>
+                <p style="padding-left: 30px;"><%= f.text_field :email, class: "form-control email" %></p>
+              </td>
+            <tr>
+            </tr>
+            <tr>
+              <th>
+                <p>会員ステータス</p>
+              </th>
+              <td>
+                <p style="padding-left: 30px;">
+                  <%= f.radio_button :is_deleted, :false %>
+                  <%= f.label :is_deleted, "有効" %>
+
+                  <%= f.radio_button :is_deleted, :true %>
+                  <%= f.label :is_deleted, "退会" %></p>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><p style="padding-left: 30px;"><%= f.submit "変更を保存", class: 'btn btn-success' %></p></td>
+            </tr>
+          </table>
+        <% end %>
+
+</div>

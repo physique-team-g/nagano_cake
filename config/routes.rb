@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :customers, only: [:index, :show, :edit, :update]
 
+    patch "orders/update_status" => "orders#update_status", as: "update"
     resources :orders, only: [:show, :update]
 
     resources :order_details, only: [:update]
@@ -35,22 +36,23 @@ Rails.application.routes.draw do
 
     get 'homes/about' => "homes#about", as: "about"
 
-    resources :customers, only: [:show, :edit, :update]
     get 'customers/withdrawal' => "customers#withdrawal", as: "withdrawal"
-    get 'customers/status' => "customers#status", as: "status"
+    get 'customers/information/edit' => "customers#edit", as: "edit"
+    patch 'customers/information' => "customers#update", as: "update"
+    patch 'customers/status' => "customers#status", as: "status"
+    resource :customers, only: [:show]
+
 
     resources :addresses, only: [:create, :edit, :update, :index, :destroy]
 
-    resources :orders, only: [:new, :create, :show, :index]
-    get 'orders/order_check' => "orders#order_check", as: "order_check"
+    post 'orders/order_check' => "orders#order_check", as: "order_check"
     get 'orders/order_finish' => "orders#order_finish", as: "order_finish"
+    resources :orders, only: [:new, :create, :show, :index]
 
+    delete 'cart_items/destroy_all' => "cart_items#destroy_all", as: "destroy_all"
     resources :cart_items, only: [:create, :index, :update, :destroy]
-    get 'cart_items/destroy_all' => "cart_items#destroy_all", as: "destroy_all"
 
     resources :items, only: [:show, :index]
-
-    resources :genres, only: [:create, :index, :edit, :update]
 
   end
 

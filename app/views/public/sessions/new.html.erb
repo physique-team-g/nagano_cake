@@ -1,21 +1,39 @@
-<h2>ログイン</h2>
+<div class="login-container", style= "margin:50px 0px 50px;">
+  <div class= "d-flex justify-content-center h-100">
+    <div class= "card">
+      <div class= "card-header">
+        <h3>ログイン</h3>
+      </div>
 
-<p>会員の方はこちらからログイン</p>
+      <div class= "card-body">
+        <strong style="background-color: #EEE;">会員の方はこちらからログイン</strong>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <i class= "fas fa-user"></i>
+            <%= f.label :email, "メールアドレス" %>
+            <div class="form-control">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com" %>
+            </div>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="form-group">
+          <i class = "fas fa-key"></i>
+          <%= f.label :password, "パスワード" %>
+          <div class="form-control">
+          <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+
+        <div class="actions text-right">
+          <%= f.submit "ログイン", class:"btn btn-sm btn-primary" %>
+        </div>
+      <% end %>
+
+    <strong style="background-color: #EEE;">会員登録がお済みでない方</strong>
+      <br>
+      <%= render "public/shared/links", class:"btn btn-sm btn-primary" %>から新規登録を行ってください。
+    </div>
+
+    </div>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit "ログイン", class:"btn btn-sm btn-primary" %>
-  </div>
-<% end %>
-<p>会員登録がお済でない方</p>
-<%= render "public/shared/links", class:"btn btn-sm btn-primary" %>から新規登録を行ってください。
+</div>

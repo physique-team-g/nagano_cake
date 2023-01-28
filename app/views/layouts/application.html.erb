@@ -6,73 +6,102 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<header>
-  <% if customer_signed_in? %>
-       <li>
-        <%= link_to root_path do %>
-          LOGO
-        <% end %>
-      </li>
-      <li>
+  <header>
+  <!--ヘッダーのナビゲーションメニューとカラースキームの指定-->
+  <!--画面幅によってナビゲーションを折りたたむ-->
+  <nav class="navbar navbar-expand-lg" style="background-color: #DAC3B2;">
+  <div class="container">
 
-        <%= link_to customer_path(current_customer) do %>
-         マイページ
-        <% end %>
-      </li>
-      <li>
-        <%= link_to items_path do %>
-         商品一覧
-        <% end %>
-      </li>
-       <li>
-        <%= link_to cart_items_path do %>
-          カート
-        <% end %>
-      </li>
-       <li>
-        <%= link_to destroy_customer_session_path, method: :delete do %>
-         ログアウト
-        <% end %>
-      </li>
-  <% else %>
-      <li>
-        <%= link_to root_path do %>
-          LOGO
-        <% end %>
-      </li>
-      <li>
-        <%=  link_to about_path do %>
-         About
-        <% end %>
-      </li>
-      <li>
-        <%=  link_to items_path do %>
-         商品一覧
-        <% end %>
-      </li>
-       <li>
-        <%=  link_to new_customer_registration_path do %>
-          新規登録
-        <% end %>
-      </li>
-       <li>
-        <%=  link_to customer_session_path do %>
-         ログイン
-        <% end %>
-      </li>
+  <!--長野ケーキ（ロゴ）：トップに戻るルートパスを設定-->
+  <%= link_to root_path do %>
+    <%= image_tag 'nagano_physique.PNG', alt: 'logo用画像', size: '180x80' %>
   <% end %>
-</header>
 
-<main>
-  <%= yield %>
-</main>
+  <!--ハンバーガーメニューへの切り替え-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon", style="color:#fff;"><i class= "fas fa-list"></i></span>
+  </button>
 
-<footer>
-</footer>
+  <!--ナビゲーションが閉じたり開いたりする動作-->
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ml-auto">
+
+    <% if customer_signed_in? %>
+      <div style="margin: 10px; color: #fff;">ようこそ<%= current_customer.last_name + current_customer.first_name %>さん！</div>
+        <li style="margin: 10px;">
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "カート", cart_items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "マイページ", customers_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+
+    <% elsif admin_signed_in? %>
+        <li style="margin: 10px;">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "注文履歴一覧", admin_top_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+
+    <% else %>
+        <li style="margin: 10px;">
+          <%=  link_to "ログイン", customer_session_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+        <li style="margin: 10px;">
+          <%= link_to "About", about_path, class: "btn btn-outline-light btn-sm" %>
+        </li>
+    <% end %>
+  </div>
+
+    <div class="search-box" style="margin: 10px;">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <i class="fas fa-search" style="color:#fff;"></i>
+    </div>
+</nav>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer class="footer" style="background-color: #DAC3B2; padding: 10px;">
+    <div class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <i class="fab fa-line" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-twitter-square" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-instagram" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <i class="fab fa-youtube-square" style="font-size: 2em; margin: 10px; color: #453232;"></i>
+        <p style="color: #fff; text-align: center;">CopyRight team-Physique</p>
+      </div>
+    </div>
+  </div>
+  </footer>
 
 </html>

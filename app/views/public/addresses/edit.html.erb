@@ -1,2 +1,39 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+<div class='container'>
+  <div class='row m-5'>
+    <div class='mx-auto'>
+      <h4><span style = "background-color: #EEE; padding: 0 20px;">配送先編集</span></h4>
+      <%= form_with model: @address do |f| %>
+      <table>
+      <tr>
+         <td>
+           <p>郵便番号(ハイフンなし)</p>
+         </td>
+         <td>
+            <%= f.text_field :post_code %>
+         </td>
+      </tr>
+      <tr>
+         <td>
+           <p>住所</p>
+         </td>
+         <td>
+            <%= f.text_field :address, :size=>"50" %>
+         </td>
+      </tr>
+      <tr>
+         <td>
+           <p>宛名</p>
+         </td>
+         <td>
+            <%= f.text_field :name %>
+         </td>
+         <td></td>
+         <td>
+            <%= f.submit '変更内容を保存',class: "btn btn-sm btn-success" %>
+         </td>
+      </tr>
+      </table>
+      <% end %>
+      </div>
+   </div>
+</div>

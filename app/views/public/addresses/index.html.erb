@@ -1,2 +1,71 @@
-<h1>Addresses#index</h1>
-<p>Find me in app/views/addresses/index.html.erb</p>
+ <div class='container'>
+  <div class='row m-5'>
+    <div class='col-md-12'>
+
+         <h4><span style = "background-color: #EEE; padding: 0 20px;">配送先・登録一覧</span></h4>
+
+         <%= form_with model: @address do |f| %>
+         <table>
+         <tr>
+            <td>
+              <p>郵便番号(ハイフンなし)</p>
+            </td>
+            <td>
+               <%= f.text_field :post_code,placeholder: "0000000"  %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>住所</p>
+            </td>
+            <td>
+               <%= f.text_field :address, :size=>"50",placeholder: "東京都渋谷区代々木神園町0-0" %>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <p>宛名</p>
+            </td>
+            <td>
+               <%= f.text_field :name,placeholder: "令和道子" %>
+            </td>
+            <td></td>
+            <td>
+               <%= f.submit '新規登録', class:"btn btn-sm btn-success" %>
+            </td>
+         </tr>
+         </table>
+         <% end %>
+      </div>
+   </div>
+      <div class='row m-5'>
+         <div class='col-md-12'>
+
+         <table border="1" style="border-collapse: collapse" width="90%">
+         <tr>
+            <th style = "background: #EEE;">郵便番号</th>
+            <th style = "background: #EEE;">住所</th>
+            <th style = "background: #EEE;">宛名</th>
+            <th style = "background: #EEE;" colspan="3"></th>
+         </tr>
+         <% @addresses.each do |address| %>
+         <tr>
+            <td>
+               <%= address.post_code %>
+            </td>
+            <td>
+               <%= address.address %>
+            </td>
+            <td>
+               <%= address.name %>
+            </td>
+            <td>
+               <%= link_to "編集する", edit_address_path(address.id), class:"btn btn-sm btn-success" %>
+               <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" %>
+            </td>
+         </tr>
+         <% end %>
+         </table>
+      </div>
+   </div>
+</div>

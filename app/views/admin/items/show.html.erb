@@ -1,24 +1,52 @@
-<!--変数名など修正箇所あります-->
-<h3>商品詳細</3>
+<div class= "container", style= "margin-top: 80px; margin-bottom: 80px;">
+  <div class= "row ml-5 bg-light">
+    <h3>商品詳細</3>
+  </div>
+  <div class= "row">
+    <div class= "col-5 mx-auto">
+      <%= image_tag @item.get_item_image(500,500), class: "img-fluid" %>
+    </div>
 
-<!--商品画像-->
-<%= image_tag @item.get_item_image, size:"100x100" %>
+    <div class= "col-7 mx-auto">
+      <table class= "table">
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
 
-<!--商品名-->
-<%= @item.name %>
+        <tr>
+          <td>商品説明</td>
+          <td><%= @item.introduction %></td>
+        </tr>
 
-<!--商品説明-->
-<%= @item.name %>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @item.genre.name %></td>
+        </tr>
 
-<!--ジャンル-->
-<%= @item.genre %>
+        <tr>
+          <td>税込み価格<br>(税抜き価格)</td>
+          <td><%= @total_price.ceil %>(<%= @item.price %>)円</td>
+        </tr>
 
-<!--税込価格（税抜価格）-->
-<p>¥</p></p><%= @item.price %>
-
-<!--ステータス-->
-<%= @item.status %>
-
-<div class="form-group">
-    <%= f.submit "編集する", class: 'btn btn-secondary' %>
+        <tr>
+          <td>販売ステータス</td>
+          <td>
+             <% if @item.is_active %>
+             <div class= "text-success">
+               販売中
+              </div>
+             <% else %>
+             <div class= "text-danger">
+               販売停止中
+              </div>
+             <% end %>
+          </td>
+        </tr>
+      </table>
+      <%= link_to "編集する",  edit_admin_item_path(@item), class: 'btn btn-success btn-block' %>
+    </div>
+  </div>
 </div>
+
+
