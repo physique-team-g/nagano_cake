@@ -12,7 +12,8 @@
             <td>
                 <p><%= f.label "名前" %></p>
             </td>
-            <td><p style="padding-left: 31px;">
+            <td>
+              <p style="padding-left: 31px;">
                 (姓)<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",placeholder: "令和" %>
                 (名)<%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "道子" %></p>
             </td>
