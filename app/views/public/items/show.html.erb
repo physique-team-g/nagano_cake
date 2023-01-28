@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row p-5">
 
-    <div class="col-4 mx-auto">
-      <%= image_tag @item.get_item_image(300,200) %>
+    <div class="col-5 mx-auto">
+      <%= image_tag @item.get_item_image(500,500), class: "img-fluid" %>
     </div>
 
-    <div class="col-8 mx-auto">
+    <div class="col-7 mx-auto">
       <h4><%= @item.name %></h4>
       <%= @item.introduction %><br>
       <p>¥<%= @item.price.to_s(:delimited) %>(税込)</p><br>
