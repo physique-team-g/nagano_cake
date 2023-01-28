@@ -2,7 +2,7 @@
   <div class="row">
     <div class="mx-auto">
 
-      <strong style="background-color: #EEE;">新規会員登録</strong>
+      <h4><strong style="background-color: #EEE;">新規会員登録</strong></h4><br>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
@@ -18,7 +18,7 @@
                 (名)<%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "道子" %></p>
             </td>
        </tr>
-      
+
         <tr>
             <td>
                 <p><%= f.label "フリガナ" %></p>
@@ -28,7 +28,7 @@
           (メイ)<%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "ミチコ" %></p>
             </td>
        </tr>
-       
+
        <tr>
             <td>
                 <p><%= f.label "メールアドレス" %></p>
@@ -37,7 +37,7 @@
               <p style="padding-left: 276px;"><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com" %></p>
             </td>
        </tr>
-       
+
        <tr>
             <td>
                 <p><%= f.label "郵便番号(ハイフンなし)" %></p>
@@ -46,7 +46,7 @@
               <p style="padding-left: 276px;"><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code",placeholder: "0000000" %></p>
             </td>
        </tr>
-       
+
        <tr>
             <td>
                 <p><%= f.label "住所" %></p>
@@ -55,7 +55,7 @@
               <p style="padding-left: 276px;"><%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "東京都渋谷区代々木神園町0-0" %></p>
             </td>
        </tr>
-       
+
        <tr>
             <td>
                 <p><%= f.label "電話番号(ハイフンなし)" %></p>
@@ -64,7 +64,7 @@
               <p style="padding-left: 276px;"><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder: "0000000000" %></p>
             </td>
        </tr>
-       
+
        <tr>
             <td>
                 <%= f.label "パスワード" %>
@@ -76,7 +76,7 @@
                  <p style="padding-left: 276px;"><%= f.password_field :password, autocomplete: "new-password" %></p>
             </td>
        </tr>
-       
+
         <tr>
             <td>
                 <p> <%= f.label "パスワード(確認用)" %></p>
@@ -85,12 +85,12 @@
               <p style="padding-left: 276px;"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
             </td>
        </tr>
-       
+
        <tr>
          <td>
           <%= f.submit "新規登録",class:"actions btn btn-success"%>
          </td>
-       
+
           <% end %>
           <td>
             <strong style="background-color: #EEE;">既に登録済みの方</strong>
