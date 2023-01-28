@@ -1,5 +1,5 @@
-<div class= "container">
-  <div class= "row">
+<div class= "container", style= "margin-top: 80px; margin-bottom: 80px;">
+  <div class= "row ml-5 bg-light">
     <h3>商品詳細</3>
   </div>
   <div class= "row">
@@ -33,10 +33,14 @@
           <td>販売ステータス</td>
           <td>
              <% if @item.is_active %>
+             <div class= "text-success">
                販売中
+              </div>
              <% else %>
-              販売停止中
-              <% end %>
+             <div class= "text-danger">
+               販売停止中
+              </div>
+             <% end %>
           </td>
         </tr>
       </table>
